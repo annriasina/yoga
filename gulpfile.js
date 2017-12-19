@@ -46,21 +46,21 @@ gulp.task('watch', ['browser-sync', 'sass', 'scripts'], function() {
 });
 
 gulp.task('img', function() {
-    return gulp.src('app/img/**/*')
+    return gulp.src('app/images/**/*')
         .pipe(cache(imagemin({
             interlaced: true,
             progressive: true,
             svgoPlugins: [{removeViewBox: false}],
             use: [pngquant()]
         })))
-        .pipe(gulp.dest('dist/img'));
+        .pipe(gulp.dest('dist/images'));
 });
 
 gulp.task('clean', function() {
     return del.sync('dist'); // Удаляем папку dist перед сборкой
 });
 
-gulp.task('build', ['clean', 'sass', 'scripts'], function() {
+gulp.task('build', ['clean', 'img', 'sass', 'scripts'], function() {
 
     var buildCss = gulp.src([ // Переносим библиотеки в продакшен
         'app/css/main.min.css',
