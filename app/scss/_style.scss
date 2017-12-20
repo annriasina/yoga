@@ -243,3 +243,63 @@
     color: #999;
   }
 }
+
+#gallery {
+  margin-bottom: 125px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.img-gallery {
+  width: 25%;
+  position: relative;
+  img {
+    display: block;
+    width: 100%;
+  }
+  .search {
+    display: block;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    span {
+      transition: all .35s ease;
+      display: block;
+      opacity: 0;
+      border-radius: 50%;
+      background: url("../images/search.png") center center no-repeat, #fff;
+      width: 57px;
+      height: 57px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+  }
+  &:hover .search span {
+    opacity: 1;
+  }
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    top: 50%;
+    bottom: 50%;
+    transition: all .6s ease;
+    background: rgba(91,108,235,.8);
+  }
+  &:hover:after {
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
