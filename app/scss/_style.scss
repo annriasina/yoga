@@ -303,3 +303,90 @@
     bottom: 0;
   }
 }
+
+#blog {
+  margin-bottom: 126px;
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.about-blog {
+  width: 52%;
+  padding: 15px 138px 0 0;
+  .title {
+    text-align: left;
+    margin-bottom: 15px;
+  }
+  p {
+    color: #555;
+  }
+}
+
+.slider-first {
+  width: 48%;
+}
+
+.slider {
+  .slick-arrow {
+    background: #fff;
+    border: none;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    text-indent: -9999px;
+    z-index: 1;
+    outline: none;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transform: translateY(-50%);
+    -webkit-box-shadow: inset 5px 5px 16px 0px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: inset 5px 5px 16px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 5px 5px 16px 0px rgba(0, 0, 0, 0.1);
+    &:after {
+      content: '';
+      display: block;
+      width: 13px;
+      position: absolute;
+      height: 21px;
+      background-image: url("../images/arrows.png");
+      background-repeat: no-repeat;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+    }
+  }
+}
+
+.slider-first {
+  padding-right: 27px;
+}
+
+.slick-list {
+  border-radius: 7px;
+}
+
+.slick-slide {
+  img {
+    width: 100%;
+  }
+}
+
+.slick-prev {
+  left: -27px;
+}
+
+.slick-next {
+  right: 0;
+  &:after {
+    background-position: -13px 0;
+  }
+}
+
+.slick-slide {
+  outline: none;
+}
