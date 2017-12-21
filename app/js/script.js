@@ -31,4 +31,16 @@ $(document).ready(function(){
         dots: false,
         arrows: true,
     });
+
+    $('.reviews-slider').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: true,
+        arrows: true,
+    });
+
+    $(document).on('click','.hamburger',function () {
+        $('header .nav').toggle();
+    });
+
 });
