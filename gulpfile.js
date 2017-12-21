@@ -5,6 +5,7 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglifyjs');
     cssnano = require('gulp-cssnano'),
     rename  = require('gulp-rename');
+    rigger = require('gulp-rigger'),
     del  = require('del');
     imagemin = require('gulp-imagemin'),
     pngquant = require('imagemin-pngquant');
@@ -15,9 +16,8 @@ gulp.task('sass', function(){
     return gulp.src('app/scss/**/*.scss')
         .pipe(sass())
         .pipe(cssnano())
-        .pipe(rename({suffix: '.min'}))
         .pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))
-        .pipe(gulp.dest('app/css'))
+        .pipe(gulp.dest('dist/css'))
         .pipe(browserSync.reload({stream: true}))
 });
 
@@ -57,14 +57,15 @@ gulp.task('img', function() {
 });
 
 gulp.task('clean', function() {
-    return del.sync('dist'); // Удаляем папку dist перед сборкой
+    return del.sync('dist');
 });
 
 gulp.task('build', ['clean', 'img', 'sass', 'scripts'], function() {
 
-    var buildCss = gulp.src([ // Переносим библиотеки в продакшен
-        'app/css/*',
-    ])
+    var buildCss = gulp.src([
+        'app/css/all_plugins.css',
+    ])  .pipe(rigger())
+        .pipe(cssnano())
         .pipe(gulp.dest('dist/css'));
 
     var buildFonts = gulp.src('app/fonts/**/*')

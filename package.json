@@ -30,7 +30,8 @@
     "imagemin-pngquant": "^5.0.1"
   },
   "dependencies": {
-    "browser-sync": "^2.18.13"
+    "browser-sync": "^2.18.13",
+    "gulp-rigger": "^0.5.8"
   },
   "description": ""
 }
